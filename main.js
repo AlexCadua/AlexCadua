@@ -8,12 +8,56 @@ var currentPanel = 0;
 var panelIndex = [];
 var panelPortion = [];
 
+var interpreter = "guest";
+
 var myVar;
+
+           //https://terminal.jcubic.pl/
+var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
+const term = $(function() {
+        $('terminal').terminal({
+            hello: function(what) {
+                this.echo('Hello, ' + what +
+                        '. Welcome to this terminal.');
+            },
+            dump: function(file){
+                fetch(file)
+                .then((res) => res.text())
+                .then((text) => {
+                    this.echo(text)
+                })
+                .catch((e) => console.error(e));
+            },
+            eval: function(command) {
+                if (command !== '') {
+                    try {
+                        var result = __EVAL(command);
+                        if (result !== undefined) {
+                            this.echo(new String(result));
+                        }
+                    } catch(e) {
+                        this.error(new String(e));
+                    }
+                }
+            } 
+            
+        }, {
+            greetings: 'Welcome',
+            prompt
+        });
+});
+
+function prompt(){
+    if(interpreter == "eval"){
+        eval;
+    }
+    return "guest> "
+}
 
 function onLoad() {
     setTimeout(loadWriter,500);
     setTimeout(showPage, 1000);
-    //setTimeout(showTerminal,2000);
+    setTimeout(showTerminal,3000);
 }
 
 function showPage() {
@@ -79,9 +123,8 @@ async function typeWriter() {
         setTimeout(typeWriter, speed);
         
     } else{
-
-        showTerminal();
-        await new Promise(r => setTimeout(r, 1000));
+        //showTerminal();
+        await new Promise(r => setTimeout(r, 2000));
         document.getElementById("bgWriter").style.opacity = "0";
         await new Promise(r => setTimeout(r, 2000));
         document.getElementById("bgWriter").style.opacity = "1";
