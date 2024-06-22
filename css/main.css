@@ -1,3 +1,9 @@
+.introduction{
+    position: fixed;
+    left: 180px;
+    top: 100px;
+}
+
 body{
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
     background: linear-gradient(to bottom, rgba(20,20,20,1) 0%,rgba(69,72,77,1) 50%, rgba(20,20,20,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -6,15 +12,27 @@ body{
     height: 0px;
 }
 
-#bgWriter {
+
+.asciiProfile{
+    /* https://stackoverflow.com/questions/1702559/ascii-art-in-html */
+    position: fixed;
+    left: 800px;
+    top: 100px;
+
+    font-family: monospace;
+    white-space: pre;
+}
+
+#bgWriter { 
     opacity: 100;
     transition: 1s opacity;
 }
 .bgWriter{
-    color: rgba(150,150,150,0.2);
+
     font-size:0.65vw;
-    font-family: "Lucida Console", "Courier New", monospace;
-    position: absolute;
+
+    position: fixed;
+    top: 0px;
     width: 100%; 
     display: table;
 

@@ -1,0 +1,9 @@
+.bgWriter{
+    color: rgba(150,150,150,0.2);
+
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.introduction{
+    color: rgba(150,150,150,0.8);
+}
