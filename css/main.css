@@ -1,7 +1,9 @@
 .introduction{
     position: fixed;
-    left: 180px;
-    top: 100px;
+    left: 280px;
+    top: 150px;
+    opacity: 50;
+    transition: 1s opacity;
 }
 
 body{
@@ -10,14 +12,18 @@ body{
     padding: 0px;
     margin: 0px;
     height: 0px;
+    opacity:100;
+    transition: background-color 2s linear;
 }
 
 
-.asciiProfile{
+.ProfilePicture{
     /* https://stackoverflow.com/questions/1702559/ascii-art-in-html */
     position: fixed;
     left: 800px;
     top: 100px;
+    font-size:4px;
+    transition: 2s opacity;
 
     font-family: monospace;
     white-space: pre;
@@ -25,7 +31,7 @@ body{
 
 #bgWriter { 
     opacity: 100;
-    transition: 1s opacity;
+    transition: 2s opacity;
 }
 .bgWriter{
 
